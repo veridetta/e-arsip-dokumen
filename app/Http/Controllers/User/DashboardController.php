@@ -15,7 +15,8 @@ class DashboardController extends Controller
         $categories = GeneralCategory::where('name', '!=', 'private')->get();
         $documents = Document::where('type', 'general')->get();
         // dd($documents);
-        return view('user.dashboard', compact('categories', 'documents'));
+        $total_dokumen_pribadi = Document::where('type', 'private')->where('user_id', auth()->user()->id)->count();
+        return view('user.dashboard', compact('categories', 'documents', 'total_dokumen_pribadi'));
     }
 
     public function filter(Request $request)
@@ -23,7 +24,8 @@ class DashboardController extends Controller
         $categories = GeneralCategory::where('name', '!=', 'private')->get();
         $category = GeneralCategory::find($request->category);
         $documents = Document::where('type', 'general')->where('general_category_id', $request->category)->get();
-        return view('user.dashboard', compact('categories', 'category', 'documents'));
+        $total_dokumen_pribadi = Document::where('type', 'private')->where('user_id', auth()->user()->id)->count();
+        return view('user.dashboard', compact('categories', 'category', 'documents', 'total_dokumen_pribadi'));
     }
 
     //document

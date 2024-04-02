@@ -53,9 +53,9 @@
                     <span class="text-dark fw-bold text-capitalize">{{ auth()->user()->name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    {{-- <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="align-middle me-1"
-                            data-feather="user"></i> Profile</a> --}}
-                    {{-- <div class="dropdown-divider"></div> --}}
+                    <a class="dropdown-item" href="{{ route('profile') }}"><i class="align-middle me-1"
+                            data-feather="user"></i> Profile</a>
+                    <div class="dropdown-divider"></div>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="dropdown-item">Log out</button>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\PrivateDocumentController as UserPrivateDocumentController;
 use App\Http\Controllers\User\RequestController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,10 @@ Route::get('/dashboard', function () {
         return redirect()->route('login');
     }
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/profile', [Controller::class, 'profile'])->middleware(['auth'])->name('profile');
+
+Route::post('/profile/{id}', [Controller::class, 'updateProfile'])->middleware(['auth'])->name('updateProfile');
 
 Route::get('/checkRole', function () {
     if (!Auth::check()) {
@@ -166,5 +171,13 @@ Route::get('/buat', function () {
     return 'berhasil';
 
 })->name('buat');
+
+//route php artisan storage:link
+Route::get('/link', function () {
+    //delete folder public/storage
+    \Illuminate\Support\Facades\File::deleteDirectory(public_path('storage'));
+    Artisan::call('storage:link');
+    return 'berhasil';
+})->name('link');
 
 require __DIR__ . '/auth.php';

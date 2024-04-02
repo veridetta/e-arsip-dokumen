@@ -5,8 +5,24 @@
         <div class="container-fluid p-0">
 
             <h1 class="mb-4 fw-bold my-text-color text-capitalize">Selamat Datang, {{ Auth::user()->name }}</h1>
+            <div class="col-12 col-lg-12 col-xl-12 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-body">
+                        <h3 class="card-title my-text-color">Jumlah Dokumen Khusus</h3>
+                        <div class="d-flex align-items-center mt-2 p-2">
+                            <h1 class="display-3 my-text-color font-weight-bold mb-0">{{ $total_dokumen_pribadi }}</h1>
+                            <div class="ms-auto">
+                                <div class="my-text-color opacity-75">
+                                    <i class="fas fa-key fa-5x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
             <div class=" text-center col-12 container pt-4">
-                <h3 class="fw-bold text-uppercase text-primary">Jelajahi Dokumen</h3>
+                <h3 class="fw-bold text-uppercase text-primary">Jelajahi Dokumen Umum</h3>
             </div>
             <div class="container">
                 <div class="row">

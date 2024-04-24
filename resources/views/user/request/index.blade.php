@@ -3,7 +3,7 @@
 @section('content')
     <main class="content">
         <div class="container p-0">
-            <h1 class="mb-3 fw-bold my-text-color">Kelola Permintaan Dokumen</h1>
+            <h1 class="mb-3 fw-bold my-text-color">Kelola Request</h1>
             @include('components.flash-message')
             <div class="card">
                 <div class="card-body">

@@ -106,12 +106,13 @@ Route::middleware('checkRole:user')->group(function () {
     //filter
     Route::get('/user/dashboard/filter', [UserDashboardController::class, 'filter'])->name('user.dashboard.filter');
     //document
-    Route::get('/user/dashboard/document/{id}', [UserDashboardController::class, 'document'])->name('user.dashboard.document');
+    Route::get('/user/general/document/{id}', [UserDashboardController::class, 'document'])->name('user.general.document');
     //masukkan ke dalam group route prefix admin
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('private-documents', UserPrivateDocumentController::class);
         //preview document
         Route::get('private-documents/preview/{id}', [UserPrivateDocumentController::class, 'preview'])->name('private-documents.preview');
+        Route::get('general', [UserDashboardController::class, 'general'])->name('general');
         //get requests
         Route::resource('get-requests', \App\Http\Controllers\User\GetRequestController::class);
         //preview document
@@ -156,13 +157,19 @@ Route::get('/buat', function () {
         [
             'name' => 'user',
             'email' => 'user@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('user1234'),
+            'role' => 'user',
+        ],
+        [
+            'name' => 'user2',
+            'email' => 'user2@gmail.com',
+            'password' => Hash::make('user1234'),
             'role' => 'user',
         ],
         [
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('admin1234'),
             'role' => 'admin',
         ]
     ];

@@ -121,14 +121,7 @@
                 })
             })
 
-            $('.select2').select2({
-                placeholder: 'Pilih User',
-                allowClear: true,
-                width: '100%',
-                multiple: true,
-                dropdownParent: $('#shareModal{{ $data->id }}')
 
-            });
         })
     </script>
 @endsection

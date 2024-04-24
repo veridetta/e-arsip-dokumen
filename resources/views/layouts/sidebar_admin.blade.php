@@ -33,24 +33,35 @@
                 </a>
             </li>
 
-            <li class="sidebar-item @if (request()->routeIs('admin.private-documents.*')) active @endif">
-                <a class="sidebar-link bg-transparent fw-bold" href="{{ route('admin.private-documents.index') }}">
-                    <i class="align-middle fa fa-key"></i>
+            <li class="sidebar-item @if (request()->routeIs('admin.private-documents.*') || request()->routeIs('admin.get-requests.*')) active @endif">
+                <a class="sidebar-link bg-transparent fw-bold" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#kelola-dokumen" aria-expanded="true">
+                    <i class="align-middle fa fa-file"></i>
                     <span class="align-middle">Kelola Dokumen Khusus</span>
+                    <i class="fas fa-chevron-down" style="float: right; margin-right: 10px;"></i>
                 </a>
+                <div id="kelola-dokumen" class="collapse show">
+                    <ul class="sidebar-dropdown list-unstyled" style="padding-left: 10px;">
+                        <li class="sidebar-item @if (request()->routeIs('admin.private-documents.*')) active @endif">
+                            <a class="sidebar-link bg-transparent fw-bold" href="{{ route('admin.private-documents.index') }}">
+                                <i class="align-middle fa fa-key"></i>
+                                <span class="align-middle">Kelola Dokumen</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item @if (request()->routeIs('admin.get-requests.*')) active @endif">
+                            <a class="sidebar-link bg-transparent fw-bold" href="{{ route('admin.get-requests.index') }}">
+                                <i class="align-middle fa fa-file"></i>
+                                <span class="align-middle">Request Dokumen Khusus</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
 
-            <li class="sidebar-item @if (request()->routeIs('admin.get-requests.*')) active @endif">
-                <a class="sidebar-link bg-transparent fw-bold" href="{{ route('admin.get-requests.index') }}">
-                    <i class="align-middle fa fa-file"></i>
-                    <span class="align-middle">Minta Izin Akses Dokumen Khusus</span>
-                </a>
-            </li>
 
             <li class="sidebar-item @if (request()->routeIs('admin.requests.*')) active @endif">
                 <a class="sidebar-link bg-transparent fw-bold" href="{{ route('admin.requests.index') }}">
                     <i class="align-middle fa fa-file"></i>
-                    <span class="align-middle">Kelola Permintaan Dokumen</span>
+                    <span class="align-middle">Kelola Request</span>
                 </a>
             </li>
 

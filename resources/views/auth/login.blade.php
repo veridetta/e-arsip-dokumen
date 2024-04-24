@@ -51,3 +51,8 @@
 </x-guest-layout>
 
 @endsection
+@push('scripts')
+<script>
+    $(".mx-auto").css("width", "45%");
+</script>
+@endpush

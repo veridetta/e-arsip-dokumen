@@ -12,7 +12,7 @@
                         $ext = pathinfo($data->file, PATHINFO_EXTENSION);
                         ?>
                         @if ($ext == 'pdf')
-                            <embed src="{{ url('storage/general-documents/' . $data->file) }}#toolbar=0" type="application/pdf"
+                            <embed src="{{ url('storage/general-documents/' . $data->file) }}" type="application/pdf"
                                 width="100%" height="600px" />
                         @else
                         {{-- <div id="docx-preview" data-file="{{ '../../../storage/private-documents/' . $data->file }}"></div> --}}
